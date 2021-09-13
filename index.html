@@ -23,17 +23,13 @@
 
         <p id="users"></p>
         <p id="dbday"></p>
+        <p id="tex"></p>
 
 
     </form>
-
-
-
+</div>
 
     <script>
-
-
-
 
 
         function oopsOhMY() {
@@ -52,6 +48,32 @@
             }
 
         }
+        function dateDiff() {
+            var first = document.getElementById("fname").value;
+            var last = document.getElementById("lname").value;
+            var dbirth = document.getElementById("bday").valueAsDate;
+            var tday = Date.now();
+            if (((tday - dbirth) / 86400000) < 365 * 18) {
+                document.getElementById("dbday").innerHTML = "Sorry, " + first + " you are too young bor this class, but you have been breathing for " + Math.round(((tday - dbirth) / 86400000)) + " days!"
+
+            } else {
+                document.getElementById("dbday").innerHTML = first + " " + last + " you have been breathing for " + Math.round(((tday - dbirth) / 86400000)) +
+                    " days! Holy Oxygen - Carbon Dioxide Exchange.";
+
+            }
+
+        }
+
+        function pythThe() {
+            let x = "";
+            document.getElementById("tex").innerHTML="";
+            for (let i = 0; i < 20; i++) {
+                x += "X";
+                document.getElementById("tex").appendChild(document.createTextNode(x));
+                document.getElementById("tex").appendChild(document.createElement('br'));
+
+            }
+        }
         function checkId() {
             var uid = document.getElementById("uid").value;
             const x = uid.match(/[A-Z]/g);
@@ -61,15 +83,15 @@
                 document.getElementById("users").innerHTML = "One upper, one lower, one number, and it must be there with 8 to 12 characters.";
             } else {
                 document.getElementById("users").innerHTML = uid;
-                datediff();
+                dateDiff();
+                pythThe();
             }
-            function dateDiff() {
-                
 
-            }
+
+
+
+
         }
-
-
 
 
     </script>
