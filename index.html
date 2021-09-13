@@ -1,0 +1,79 @@
+<div>
+    <form>
+
+        <p> User Id:
+            <input type="text" id="uid" value="">
+        </p>
+
+        <p> First Name:
+            <input type="text" id="fname" value="">
+        </p>
+
+        <p> Last Name:
+            <input type="text" id="lname" value="">
+        </p>
+
+        <p> Birthday:
+            <input type="date" id="bday">
+        </p>
+
+        <button type="button" id="accept" onclick="oopsOhMY()">Accept
+        </button>
+
+
+        <p id="users"></p>
+        <p id="dbday"></p>
+
+
+    </form>
+
+
+
+
+    <script>
+
+
+
+
+
+        function oopsOhMY() {
+            var first = document.getElementById("fname").value;
+            var last = document.getElementById("lname").value;
+            var birthday = document.getElementById("bday").value;
+            checkId();
+            if (first == "") {
+                alert("What is your first name?");
+            }
+            if (last == "") {
+                alert("You surely have a last name.");
+            }
+            if (birthday == "") {
+                alert("You Celebrate This Day!! Please enter birthdate.");
+            }
+
+        }
+        function checkId() {
+            var uid = document.getElementById("uid").value;
+            const x = uid.match(/[A-Z]/g);
+            const y = uid.match(/[a-z]/g);
+            const z = uid.match(/[0-9]/g);
+            if ((uid.length < 8) || (uid.length > 12) || (x == undefined) || (y == undefined) || (z == undefined)) {
+                document.getElementById("users").innerHTML = "One upper, one lower, one number, and it must be there with 8 to 12 characters.";
+            } else {
+                document.getElementById("users").innerHTML = uid;
+                datediff();
+            }
+            function dateDiff() {
+                
+
+            }
+        }
+
+
+
+
+    </script>
+
+    </body>
+
+    </html>
